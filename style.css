@@ -1,38 +1,54 @@
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(135deg, #f7b2b7, #f4c4d6);
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
 }
 
+/* 3D Card */
 .card {
   background: white;
-  padding: 30px;
-  border-radius: 15px;
+  padding: 35px;
+  border-radius: 20px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 25px 40px rgba(0,0,0,0.25);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease;
+}
+
+.card:hover {
+  transform: rotateX(10deg) rotateY(-10deg) scale(1.05);
 }
 
 .text {
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 22px;
+  margin-bottom: 25px;
 }
 
 .name {
   font-weight: bold;
   color: #e63946;
+  font-size: 26px;
 }
 
+/* Buttons */
 .buttons button {
-  padding: 10px 20px;
+  padding: 12px 25px;
   font-size: 16px;
   margin: 10px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .buttons button:first-child {
@@ -44,4 +60,25 @@ body {
   background-color: #adb5bd;
   color: white;
   position: relative;
+}
+
+/* Emoji animation */
+.emoji-container span {
+  position: absolute;
+  font-size: 24px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
 }
