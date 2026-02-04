@@ -9,13 +9,15 @@ body {
   overflow: hidden;
 }
 
-/* CARD — NO AUTO TILT */
+/* CARD */
 .card {
   background: white;
   padding: 35px;
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 20px 35px rgba(0,0,0,0.25);
+  position: relative;
+  z-index: 10;
 }
 
 .text {
@@ -50,7 +52,13 @@ body {
   position: relative;
 }
 
-/* Floating emojis */
+/* EMOJIS — CAN'T BLOCK CLICKS */
+.emoji-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; /* 🔥 THIS FIXES EVERYTHING */
+}
+
 .emoji-container span {
   position: absolute;
   font-size: 24px;
